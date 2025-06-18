@@ -1,4 +1,4 @@
-import React from 'react';
+
 import {
   FaFacebookF,
   FaInstagram,
@@ -76,7 +76,7 @@ export default function Footer() {
           href="https://your-portfolio-url.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-900 font-bold hover:text-purple-100 font-medium"
+          className="text-blue-900 font-bold hover:text-purple-100"
         >
           Roshan Rai
         </a>

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import principalImage from '../../assets/images/principal.jpg'; // Make sure the image path is correct
 

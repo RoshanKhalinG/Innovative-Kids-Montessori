@@ -45,7 +45,7 @@ const features = [
 ];
 
 export default function Features() {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [ref] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
     <section className="relative py-20" id="features">
@@ -70,7 +70,6 @@ export default function Features() {
           {features.map((feature, index) => {
             const bgColorClass = colorMap[feature.color] || 'bg-gray-200';
             const buttonBgClass = bgColorClass.replace('bg-', 'bg-');
-            const hoverBgClass = bgColorClass.replace('bg-', 'hover:bg-') + '500';
             const borderClass = feature.color;
 
             return (

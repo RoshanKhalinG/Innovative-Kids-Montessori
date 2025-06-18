@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import {
   FaChalkboardTeacher,
@@ -6,10 +6,9 @@ import {
   FaUtensils,
   FaMicroscope,
   FaSmileBeam,
-  FaChild
+  FaChild,
 } from 'react-icons/fa';
 import whyChooseBg from '../../assets/4.jpg';
-
 
 const features = [
   {
@@ -50,37 +49,19 @@ const features = [
   },
 ];
 
-interface CardVariantProps {
-  opacity?: number;
-  y?: number;
-  scale?: number;
-  boxShadow?: string;
-  transition?: {
-    delay?: number;
-    duration?: number;
-    type?: string;
-    stiffness?: number;
-  };
-}
-
-interface CardVariants {
-  hidden: CardVariantProps;
-  visible: (i: number) => CardVariantProps;
-  hover: CardVariantProps;
-}
-
-export const cardVariants: CardVariants = {
+// Framer Motion card animation variants
+const cardVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 20,
     scale: 0.95,
   },
-  visible: (i) => ({
+  visible: (custom: number) => ({
     opacity: 1,
     y: 0,
     scale: 1,
     transition: {
-      delay: i * 0.15,
+      delay: custom * 0.15,
       duration: 0.5,
       type: 'spring',
       stiffness: 50,
@@ -132,7 +113,9 @@ export default function WhyChoose() {
                 className="bg-white/30 backdrop-blur-lg border border-white/30 text-green-900 p-6 rounded-2xl shadow-lg cursor-pointer"
               >
                 <div className="flex items-center gap-4 mb-4 text-orange-600">
-                  <div className="bg-white/40 p-3 rounded-full">{feature.icon}</div>
+                  <div className="bg-white/40 p-3 rounded-full">
+                    {feature.icon}
+                  </div>
                   <h3 className="text-xl font-bold">{feature.title}</h3>
                 </div>
                 <p className="text-green-800">{feature.description}</p>
