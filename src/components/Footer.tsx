@@ -1,4 +1,3 @@
-
 import {
   FaFacebookF,
   FaInstagram,
@@ -12,24 +11,23 @@ export default function Footer() {
     <footer className="bg-white text-gray-700 border-t">
       <div className="max-w-screen-xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and Description */}
-          <div>
-            <a href="#" className="flex items-center space-x-4 mb-4 cursor-pointer">
-              <img
-                src="../public/logo.png"
-                alt="Innovative Logo"
-                className="w-16 h-16"
-              />
-              <div className="text-blue-900 font-bold text-lg leading-tight">
-                <span className="text-[#fe6d16]">Innovative</span>
-                <br />
-                <span className="text-[#1bad6f]"> Kids Montessori</span>
-              </div>
-            </a>
-            <p>
-              Nurturing curious minds and fostering a love for learning at Divine Kiddos Montessori.
-            </p>
-          </div>
-
+        <div>
+          <a href="#" className="flex items-center space-x-4 mb-4 cursor-pointer">
+            <img
+              src="/logo.png" // ✅ fixed path
+              alt="Innovative Logo"
+              className="w-16 h-16"
+            />
+            <div className="text-blue-900 font-bold text-lg leading-tight">
+              <span className="text-[#fe6d16]">Innovative</span>
+              <br />
+              <span className="text-[#1bad6f]"> Kids Montessori</span>
+            </div>
+          </a>
+          <p>
+            Nurturing curious minds and fostering a love for learning at Divine Kiddos Montessori.
+          </p>
+        </div>
 
         {/* Useful Links */}
         <div>
