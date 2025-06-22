@@ -42,7 +42,7 @@ export default function Navigation() {
                 </NavLink>
                 <div className="absolute left-0 mt-2 w-56 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300 z-50">
                   <HashLink to="/about-innovative#about" className="block px-4 py-2 text-gray-700 hover:bg-green-100">About Innovative</HashLink>
-                  <HashLink to="/teachers" className="block px-4 py-2 text-gray-700 hover:bg-green-100">Teachers</HashLink>
+                  <HashLink to="/teachers" className="block px-4 py-2 text-gray-700 hover:bg-green-100">Team</HashLink>
                   <HashLink to="/principal-speech" className="block px-4 py-2 text-gray-700 hover:bg-green-100">Principal Messaage</HashLink>
                 </div>
               </div>
