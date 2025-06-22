@@ -3,8 +3,8 @@ import {
   FaInstagram,
   FaTwitter,
   FaYoutube,
-  FaLinkedinIn,
 } from 'react-icons/fa';
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default function Footer() {
   return (
@@ -12,9 +12,9 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and Description */}
         <div>
-          <a href="#" className="flex items-center space-x-4 mb-4 cursor-pointer">
+          <Link to="/" className="flex items-center space-x-4 mb-4 cursor-pointer">
             <img
-              src="/logo.png" // ✅ fixed path
+              src="/logo.png"
               alt="Innovative Logo"
               className="w-16 h-16"
             />
@@ -23,7 +23,7 @@ export default function Footer() {
               <br />
               <span className="text-[#1bad6f]"> Kids Montessori</span>
             </div>
-          </a>
+          </Link>
           <p>
             Nurturing curious minds and fostering a love for learning at Divine Kiddos Montessori.
           </p>
@@ -31,15 +31,15 @@ export default function Footer() {
 
         {/* Useful Links */}
         <div>
-          <h3 className="text-lg font-bold mb-0 text-blue-900 ">Useful Links</h3>
-          <span className="block w-24 h-1 bg-[#fe6d16] mt-0.5 mb-2 rounded-full "></span>
+          <h3 className="text-lg font-bold mb-0 text-blue-900">Useful Links</h3>
+          <span className="block w-24 h-1 bg-[#fe6d16] mt-0.5 mb-2 rounded-full"></span>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:text-red-500">Home</a></li>
-            <li><a href="#about" className="hover:text-red-500">About</a></li>
-            <li><a href="#" className="hover:text-red-500">News & Article</a></li>
-            <li><a href="#gallery" className="hover:text-red-500">Gallery</a></li>
-            <li><a href="#faq" className="hover:text-red-500">Faq</a></li>
-            <li><a href="#contact" className="hover:text-red-500">Contact</a></li>
+            <li><Link smooth to="/">Home</Link></li>
+            <li><Link smooth to="/#about">About</Link></li>
+            <li><Link to="/about-innovative">News & Article</Link></li>
+            <li><Link smooth to="/#gallery">Gallery</Link></li>
+            <li><Link smooth to="/#faq">FAQ</Link></li>
+            <li><Link smooth to="/#contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -62,7 +62,6 @@ export default function Footer() {
             <a href="#"><FaInstagram className="h-6 w-6 hover:text-red-700" /></a>
             <a href="#"><FaTwitter className="h-6 w-6 hover:text-red-700" /></a>
             <a href="#"><FaYoutube className="h-6 w-6 hover:text-red-700" /></a>
-            <a href="#"><FaLinkedinIn className="h-6 w-6 hover:text-red-700" /></a>
           </div>
         </div>
       </div>

@@ -2,13 +2,13 @@ import teacher1 from '../assets/teachers/teacher1.jpg';
 import teacher2 from '../assets/teachers/teacher2.jpg';
 import teacher3 from '../assets/teachers/teacher3.jpg';
 import teacher4 from '../assets/teachers/teacher4.jpg';
-import teacher5 from '../assets/teachers/teacher1.jpg';
+import teacher5 from '../assets/teachers/teacher5.jpg';
 import teacher6 from '../assets/teachers/teacher6.jpg';
-// import teacher7 from '../assets/teachers/teacher1.jpg';
+// import teacher7 from '../assets/teachers/teacher7.jpg';
 import teacher8 from '../assets/teachers/teacher8.jpg';
 import teacher9 from '../assets/teachers/teacher9.avif';
 import teacher10 from '../assets/teachers/teacher10.jpg';
-import teacher11 from '../assets/teachers/teacher9.jpg';
+import teacher11 from '../assets/teachers/teacher11.jpg';
 import teacher12 from '../assets/teachers/teacher12.jpg';
 
 import TeacherCard from '../components/TeacherCard';
