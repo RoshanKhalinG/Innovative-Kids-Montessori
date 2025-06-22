@@ -20,7 +20,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center py-4 sm:py-6">
           {/* Logo & Branding */}
           <HashLink to="/#home" className="flex items-center space-x-3">
-            <img src="/logo.png" alt="Sanopaila logo" className="w-20 h-20 sm:h-24 object-contain" />
+            <img src="/logo.png" alt="innovative logo" className="w-20 h-20 sm:h-24 object-contain" />
             <div>
               <h1 className="text-2xl font-extrabold" style={{ color: '#fe6d16' }}>Innovative</h1>
               <p className="text-sm -mt-1" style={{ color: '#1bad6f' }}>Kids Montessori</p>

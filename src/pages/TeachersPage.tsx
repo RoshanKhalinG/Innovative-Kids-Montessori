@@ -1,29 +1,32 @@
-import teacher1 from '../assets/teachers/principal.jpg';
-import teacher2 from '../assets/teachers/teacher1.jpg';
-import teacher3 from '../assets/teachers/teacher2.jpg';
-import teacher4 from '../assets/teachers/teacher1.jpg';
+import teacher1 from '../assets/teachers/teacher1.jpg';
+import teacher2 from '../assets/teachers/teacher2.jpg';
+import teacher3 from '../assets/teachers/teacher3.jpg';
+import teacher4 from '../assets/teachers/teacher4.jpg';
 import teacher5 from '../assets/teachers/teacher1.jpg';
-import teacher6 from '../assets/teachers/teacher1.jpg';
+import teacher6 from '../assets/teachers/teacher6.jpg';
 import teacher7 from '../assets/teachers/teacher1.jpg';
 import teacher8 from '../assets/teachers/teacher1.jpg';
 import teacher9 from '../assets/teachers/teacher1.jpg';
-import teacher10 from '../assets/teachers/teacher1.jpg';
+import teacher10 from '../assets/teachers/teacher10.jpg';
+import teacher11 from '../assets/teachers/teacher11.jpg';
+import teacher12 from '../assets/teachers/teacher12.jpg';
+
 import TeacherCard from '../components/TeacherCard';
 
 export default function TeachersPage() {
   const teachers = [
     { name: 'Lila Limbu', subject: 'Founder/Principal', image: teacher1 },
-    { name: 'Kusum KC', subject: 'English Instructor', image: teacher4 },
-    { name: 'Pabitra Limbu', subject: 'Math Instructor', image: teacher3 },
-    { name: 'Manisha Limbu', subject: 'Teacher', image: teacher2 },
+    { name: 'Kusum KC', subject: 'Coordinator', image: teacher2 },
+    { name: 'Pabitra Limbu', subject: 'Teacher', image: teacher3 },
+    { name: 'Manisha Limbu', subject: 'Teacher', image: teacher4 },
     { name: 'Jiya Limbu', subject: 'Assistant Teacher', image: teacher5 },
     { name: 'Soniya Limbu', subject: 'Assistant Teacher', image: teacher6 },
     { name: 'Reshma Moktan', subject: 'Assistant Teacher', image: teacher7 },
     { name: 'Menuka Sanjel', subject: 'Dance Teacher', image: teacher8 },
     { name: 'Lal Bikram Limbu', subject: 'Music Teacher', image: teacher9 },
     { name: 'Mina Thapa Magar', subject: 'Helper', image: teacher10 },
-    { name: 'Sangita Rokka ', subject: 'Helper', image: teacher8 },
-    { name: 'Anita Gahatraj', subject: 'Chef', image: teacher9 },
+    { name: 'Sangita Rokka ', subject: 'Helper', image: teacher11 },
+    { name: 'Anita Gahatraj', subject: 'Kitchen Head', image: teacher12 },
   ];
 
   return (

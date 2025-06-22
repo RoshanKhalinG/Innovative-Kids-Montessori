@@ -16,7 +16,7 @@ export default function Footer() {
             <a href="#" className="flex items-center space-x-4 mb-4 cursor-pointer">
               <img
                 src="../public/logo.png"
-                alt="Logo"
+                alt="Innovative Logo"
                 className="w-16 h-16"
               />
               <div className="text-blue-900 font-bold text-lg leading-tight">
