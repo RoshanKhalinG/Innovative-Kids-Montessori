@@ -4,7 +4,7 @@ import teacher3 from '../assets/teachers/teacher3.jpg';
 import teacher4 from '../assets/teachers/teacher4.jpg';
 import teacher5 from '../assets/teachers/teacher5.jpg';
 import teacher6 from '../assets/teachers/teacher6.jpg';
-// import teacher7 from '../assets/teachers/teacher7.jpg';
+import teacher7 from '../assets/teachers/teacher7.jpg';
 import teacher8 from '../assets/teachers/teacher8.jpg';
 import teacher9 from '../assets/teachers/teacher9.avif';
 import teacher10 from '../assets/teachers/teacher10.jpg';
@@ -21,7 +21,7 @@ export default function TeachersPage() {
     { name: 'Manisha Limbu', subject: 'Teacher', image: teacher4 },
     { name: 'Jiya Limbu', subject: 'Assistant Teacher', image: teacher5 },
     { name: 'Soniya Limbu', subject: 'Assistant Teacher', image: teacher6 },
-    { name: 'Reshma Moktan', subject: 'Assistant Teacher', image: teacher8 },
+    { name: 'Reshma Moktan', subject: 'Assistant Teacher', image: teacher7},
     { name: 'Menuka Sanjel', subject: 'Dance Teacher', image: teacher8 },
     { name: 'Lal Bikram Limbu', subject: 'Music Teacher', image: teacher9 },
     { name: 'Mina Thapa Magar', subject: 'Helper', image: teacher10 },
