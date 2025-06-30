@@ -75,7 +75,7 @@ export default function Gallery() {
   const toggleMaximize = () => setIsMaximized((m) => !m);
 
   return (
-    <section className="py-16 px-4 sm:px-6 bg-white rounded-lg min-h-screen" id="gallery">
+    <section className="py-16 px-4 sm:px-6 bg-white rounded-lg min-h-screen scroll-mt-24" id="gallery">
       <div className="max-w-screen-xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

@@ -15,6 +15,8 @@ import Footer from './components/Footer';
 import AboutPage from './pages/AboutPage';
 import PrincipalSpeechPage from './pages/PrincipalSpeechPage';
 import TeachersPage from './pages/TeachersPage'; // ✅ New import
+import NewsAndArticlesPage from './pages/NewsAndArticlesPage';
+import NewsArticleDetailPage from './pages/NewsArticleDetailPage';
 
 function App() {
   return (
@@ -43,6 +45,8 @@ function App() {
         <Route path="/about-innovative" element={<AboutPage />} />
         <Route path="/principal-speech" element={<PrincipalSpeechPage />} />
         <Route path="/teachers" element={<TeachersPage />} /> {/* ✅ New route */}
+        <Route path="/news" element={<NewsAndArticlesPage />} />
+        <Route path="/news/:id" element={<NewsArticleDetailPage />} />
       </Routes>
       <Footer />
     </main>

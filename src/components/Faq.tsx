@@ -109,7 +109,7 @@ const Faq = () => {
 
   return (
     <motion.div
-      id="faq"  // <-- Added this id for hash navigation
+      id="faq"
       ref={ref}
       initial="hidden"
       animate={controls}
@@ -121,7 +121,7 @@ const Faq = () => {
           transition: { duration: 0.6, ease: "easeOut" },
         },
       }}
-      className="bg-white py-16"
+      className="bg-white py-16 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2

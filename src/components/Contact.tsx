@@ -4,46 +4,69 @@ import { faPaperPlane, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      alert('Message sent!');
+    setError('');
+    setSuccess(false);
+
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSuccess(true);
+        e.currentTarget.reset();
+      } else {
+        setError('Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError('Failed to send message. Please try again.');
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   return (
     <section
       id="contact"
-      className="relative py-16 bg-gradient-to-br from-orange-50 via-white to-green-50 overflow-hidden"
+      className="relative py-16 bg-gradient-to-br from-orange-50 via-white to-green-50 overflow-hidden scroll-mt-24"
     >
       {/* Decorative SVG Background */}
-            <svg
-            className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
-            viewBox="0 0 1440 320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            >
-            <path
-                fill="#60A5FA"         // Soft Blue
-                fillOpacity="0.4"
-                d="M0,192 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"
-            ></path>
-            <path
-                fill="#34D399"        // Mint Green
-                fillOpacity="0.3"
-                d="M0,160 C480,320 960,0 1440,192 L1440,320 L0,320 Z"
-            ></path>
-            <path
-                fill="#FDE68A"        // Light Yellow highlight
-                fillOpacity="0.2"
-                d="M0,120 C360,280 1080,40 1440,140 L1440,320 L0,320 Z"
-            ></path>
-            </svg>
-
+      <svg
+        className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
+        viewBox="0 0 1440 320"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#60A5FA" // Soft Blue
+          fillOpacity="0.4"
+          d="M0,192 C360,320 1080,0 1440,160 L1440,320 L0,320 Z"
+        ></path>
+        <path
+          fill="#34D399" // Mint Green
+          fillOpacity="0.3"
+          d="M0,160 C480,320 960,0 1440,192 L1440,320 L0,320 Z"
+        ></path>
+        <path
+          fill="#FDE68A" // Light Yellow highlight
+          fillOpacity="0.2"
+          d="M0,120 C360,280 1080,40 1440,140 L1440,320 L0,320 Z"
+        ></path>
+      </svg>
 
       {/* Content Wrapper */}
       <div className="relative z-10 max-w-lg mx-auto px-6">
@@ -57,6 +80,22 @@ export default function Contact() {
             Have any questions or want to get in touch? We'd love to hear from you.
           </p>
         </div>
+
+        {/* Success Message */}
+        {success && (
+          <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+            <p className="font-semibold">Message sent successfully!</p>
+            <p>We'll get back to you soon.</p>
+          </div>
+        )}
+
+        {/* Error Message */}
+        {error && (
+          <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+            <p className="font-semibold">Error!</p>
+            <p>{error}</p>
+          </div>
+        )}
 
         {/* Contact Form */}
         <form
@@ -122,7 +161,7 @@ export default function Contact() {
             <div className="w-full md:w-1/2">
               <label
                 htmlFor="subject"
-                className="block text-sm font-bold text-blue-900  mb-1"
+                className="block text-sm font-bold text-blue-900 mb-1"
               >
                 Subject
               </label>

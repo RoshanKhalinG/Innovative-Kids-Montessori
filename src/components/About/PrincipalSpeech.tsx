@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import principalImage from '../../assets/images/principal.jpg'; // Make sure the image path is correct
+import principalImage from '../../assets/teachers/teacher1.jpg'; // Make sure the image path is correct
 
 export default function PrincipalSpeech() {
   return (

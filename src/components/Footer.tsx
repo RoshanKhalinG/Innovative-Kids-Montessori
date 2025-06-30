@@ -34,12 +34,12 @@ export default function Footer() {
           <h3 className="text-lg font-bold mb-0 text-blue-900">Useful Links</h3>
           <span className="block w-24 h-1 bg-[#fe6d16] mt-0.5 mb-2 rounded-full"></span>
           <ul className="space-y-2">
-            <li><Link smooth to="/">Home</Link></li>
-            <li><Link smooth to="/#about">About</Link></li>
-            <li><Link to="/about-innovative">News & Article</Link></li>
-            <li><Link smooth to="/#gallery">Gallery</Link></li>
-            <li><Link smooth to="/#faq">FAQ</Link></li>
-            <li><Link smooth to="/#contact">Contact</Link></li>
+            <li><Link smooth to="/" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Home</Link></li>
+            <li><Link smooth to="/#about" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>About</Link></li>
+            <li><Link to="/about-innovative" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>News & Article</Link></li>
+            <li><Link smooth to="/#gallery" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Gallery</Link></li>
+            <li><Link smooth to="/#faq" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>FAQ</Link></li>
+            <li><Link smooth to="/#contact" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Contact</Link></li>
           </ul>
         </div>
 

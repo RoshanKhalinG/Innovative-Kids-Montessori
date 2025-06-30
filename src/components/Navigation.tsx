@@ -19,7 +19,7 @@ export default function Navigation() {
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center py-4 sm:py-6">
           {/* Logo & Branding */}
-          <HashLink to="/#home" className="flex items-center space-x-3">
+          <HashLink to="/#home" className="flex items-center space-x-3" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>
             <img src="/logo.png" alt="innovative logo" className="w-20 h-20 sm:h-24 object-contain" />
             <div>
               <h1 className="text-2xl font-extrabold" style={{ color: '#fe6d16' }}>Innovative</h1>
@@ -41,13 +41,13 @@ export default function Navigation() {
                   About
                 </NavLink>
                 <div className="absolute left-0 mt-2 w-56 bg-white border rounded-lg shadow-lg opacity-0 group-hover:opacity-100 group-hover:translate-y-1 transition-all duration-300 z-50">
-                  <HashLink to="/about-innovative#about" className="block px-4 py-2 text-gray-700 hover:bg-green-100">About Innovative</HashLink>
-                  <HashLink to="/teachers" className="block px-4 py-2 text-gray-700 hover:bg-green-100">Team</HashLink>
-                  <HashLink to="/principal-speech" className="block px-4 py-2 text-gray-700 hover:bg-green-100">Principal Messaage</HashLink>
+                  <HashLink to="/about-innovative#about" className="block px-4 py-2 text-gray-700 hover:bg-green-100" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>About Innovative</HashLink>
+                  <HashLink to="/teachers" className="block px-4 py-2 text-gray-700 hover:bg-green-100" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Team</HashLink>
+                  <HashLink to="/principal-speech" className="block px-4 py-2 text-gray-700 hover:bg-green-100" scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}>Principal Messaage</HashLink>
                 </div>
               </div>
 
-              <NavLink to="/#blog" isActive={activeLink === '/#blog'}>News & Article</NavLink>
+              <NavLink to="/news" isActive={activeLink === '/news'}>News & Articles</NavLink>
               <NavLink to="/#gallery" isActive={activeLink === '/#gallery'}>Gallery</NavLink>
               <NavLink to="/#faq" isActive={activeLink === '/#faq'}>Faq</NavLink>
               <NavLink to="/#contact" isActive={activeLink === '/#contact'}>Contact</NavLink>
@@ -97,13 +97,13 @@ export default function Navigation() {
                   {aboutOpen && (
                     <div className="pl-4 space-y-2">
                       <MobileNavLink to="/about-innovative#about" onClick={() => setIsOpen(false)}>About Innovative</MobileNavLink>
-                      <MobileNavLink to="/teachers" onClick={() => setIsOpen(false)}>Teachers</MobileNavLink>
-                      <MobileNavLink to="/principal-speech" onClick={() => setIsOpen(false)}>Principal Speech</MobileNavLink>
+                      <MobileNavLink to="/teachers" onClick={() => setIsOpen(false)}>Team</MobileNavLink>
+                      <MobileNavLink to="/principal-speech" onClick={() => setIsOpen(false)}>Principal Message</MobileNavLink>
                     </div>
                   )}
                 </div>
 
-                <MobileNavLink to="/#blog" onClick={() => setIsOpen(false)}>News & Article</MobileNavLink>
+                <MobileNavLink to="/news" onClick={() => setIsOpen(false)}>News & Articles</MobileNavLink>
                 <MobileNavLink to="/#gallery" onClick={() => setIsOpen(false)}>Gallery</MobileNavLink>
                 <MobileNavLink to="/#faq" onClick={() => setIsOpen(false)}>Faq</MobileNavLink>
                 <MobileNavLink to="/#contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
@@ -140,6 +140,7 @@ function NavLink({
     <HashLink
       smooth
       to={to}
+      scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       className={`font-medium cursor-pointer transition-all duration-200 hover:font-bold ${
         isActive ? 'text-green-600 font-bold' : 'text-gray-800 hover:text-green-600'
       }`}
@@ -164,6 +165,7 @@ function MobileNavLink({
       smooth
       to={to}
       onClick={onClick}
+      scroll={el => el && el.scrollIntoView({ behavior: 'smooth', block: 'start' })}
       className="block text-gray-800 hover:text-green-600 transition-colors font-medium"
     >
       {children}
