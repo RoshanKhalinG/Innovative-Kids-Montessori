@@ -48,7 +48,7 @@ export default function Navigation() {
               </div>
 
               <NavLink to="/news" isActive={activeLink === '/news'}>News & Articles</NavLink>
-              <NavLink to="/#gallery" isActive={activeLink === '/#gallery'}>Gallery</NavLink>
+              <NavLink to="/gallery" isActive={activeLink === '/gallery'}>Gallery</NavLink>
               <NavLink to="/#faq" isActive={activeLink === '/#faq'}>Faq</NavLink>
               <NavLink to="/#contact" isActive={activeLink === '/#contact'}>Contact</NavLink>
             </div>
@@ -104,7 +104,7 @@ export default function Navigation() {
                 </div>
 
                 <MobileNavLink to="/news" onClick={() => setIsOpen(false)}>News & Articles</MobileNavLink>
-                <MobileNavLink to="/#gallery" onClick={() => setIsOpen(false)}>Gallery</MobileNavLink>
+                <MobileNavLink to="/gallery" onClick={() => setIsOpen(false)}>Gallery</MobileNavLink>
                 <MobileNavLink to="/#faq" onClick={() => setIsOpen(false)}>Faq</MobileNavLink>
                 <MobileNavLink to="/#contact" onClick={() => setIsOpen(false)}>Contact</MobileNavLink>
 

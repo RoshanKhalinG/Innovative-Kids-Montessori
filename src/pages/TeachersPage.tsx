@@ -37,7 +37,7 @@ export default function TeachersPage() {
         <h2 className="font-bold uppercase tracking-wide" style={{ color: "#fe6d16" }}>
           FAQ’S
         </h2>
-        <h2 className="text-4xl font-extrabold text-blue-900 mb-4">Meet Our Teachers</h2>
+        <h2 className="text-4xl font-extrabold text-blue-900 mb-4">Meet Our Teams</h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Meet our dedicated team of educators, guiding and inspiring young minds every step of the way.
         </p>

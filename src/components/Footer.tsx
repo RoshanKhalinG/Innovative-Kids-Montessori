@@ -70,7 +70,7 @@ export default function Footer() {
       <div className="bg-[#fe6d16] text-white text-center py-4">
         © 2025 Innovative Kids Montessori | All rights reserved | Developed by{' '}
         <a
-          href="https://your-portfolio-url.com"
+          href="https://roshankhaling.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-900 font-bold hover:text-purple-100"

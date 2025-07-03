@@ -9,6 +9,7 @@ import {
   FaExpand,
   FaCompress,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import image1 from '../assets/images/11.jpg';
 import image2 from '../assets/2.jpg';
@@ -33,11 +34,26 @@ const images = [
   image11, image12, image13, image14, image15, image16,
 ];
 
-export default function Gallery() {
+const categories = [
+  { key: 'all', label: 'All' },
+  { key: 'play', label: 'Play Session' },
+  { key: 'learning', label: 'Learning Session' },
+  { key: 'fieldtrips', label: 'Field Trips' },
+];
+
+const categorizedImages = {
+  all: images,
+  play: [],
+  learning: [],
+  fieldtrips: [],
+};
+
+export default function Gallery({ showViewGalleryButton = true }: { showViewGalleryButton?: boolean }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [zoom, setZoom] = useState(1);
   const [isMaximized, setIsMaximized] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<'all' | 'play' | 'learning' | 'fieldtrips'>('all');
 
   useEffect(() => {
     document.body.style.overflow = lightboxIndex !== null ? 'hidden' : 'auto';
@@ -57,15 +73,17 @@ export default function Gallery() {
   };
 
   const nextImage = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((lightboxIndex + 1) % images.length);
+    const imgs = categorizedImages[activeCategory];
+    if (lightboxIndex !== null && imgs.length > 0) {
+      setLightboxIndex((lightboxIndex + 1) % imgs.length);
       setZoom(1);
     }
   };
 
   const prevImage = () => {
-    if (lightboxIndex !== null) {
-      setLightboxIndex((lightboxIndex - 1 + images.length) % images.length);
+    const imgs = categorizedImages[activeCategory];
+    if (lightboxIndex !== null && imgs.length > 0) {
+      setLightboxIndex((lightboxIndex - 1 + imgs.length) % imgs.length);
       setZoom(1);
     }
   };
@@ -74,58 +92,122 @@ export default function Gallery() {
   const zoomOut = () => setZoom((z) => Math.max(z - 0.25, 1));
   const toggleMaximize = () => setIsMaximized((m) => !m);
 
+  // Get images for the current category
+  const currentImages = categorizedImages[activeCategory];
+
   return (
     <section className="py-16 px-4 sm:px-6 bg-white rounded-lg min-h-screen scroll-mt-24" id="gallery">
       <div className="max-w-screen-xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-center mb-10 text-blue-900"
-        >
-          {/* Life at Montessori */}
-         Cherished Memories
-          <span className="block w-60 h-1 bg-red-500 mt-3 mx-auto rounded-full"></span>
-        </motion.h2>
+        {/* Custom Header and Description */}
+        <div className="text-center mb-8">
+          <div className="text-red-500 text-lg font-semibold mb-2">Photo Gallery</div>
+          <h2 className="text-4xl sm:text-5xl font-bold text-blue-900 mb-2" style={{ fontFamily: 'cursive' }}>
+            An environment for learning
+          </h2>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+            A nurturing environment where learning flourishes.
+          </p>
+        </div>
 
+        {/* Filter Tabs */}
+        <div className="flex flex-col items-center mb-6">
+          {/* Tabs row for mobile: All, Play Session, Learning Session */}
+          <div className="flex gap-2 sm:gap-6 overflow-x-auto no-scrollbar w-full max-w-xs sm:max-w-none px-1 md:flex-row md:justify-center">
+            {categories.filter(cat => cat.key !== 'fieldtrips').map((cat) => (
+              <button
+                key={cat.key}
+                className={`min-w-max px-2 sm:px-4 py-1 sm:py-2 text-base sm:text-xl font-semibold pb-1 border-b-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 ${
+                  activeCategory === cat.key
+                    ? 'text-purple-700 border-yellow-400'
+                    : 'text-blue-900 border-transparent hover:text-purple-700'
+                }`}
+                style={{ borderRadius: 4 }}
+                onClick={() => {
+                  setActiveCategory(cat.key as 'all' | 'play' | 'learning' | 'fieldtrips');
+                  setLightboxIndex(null);
+                }}
+              >
+                {cat.label}
+              </button>
+            ))}
+            {/* Field Trips tab for desktop (md and up) */}
+            <button
+              className={`hidden md:inline min-w-max px-2 sm:px-4 py-1 sm:py-2 text-base sm:text-xl font-semibold pb-1 border-b-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 ${
+                activeCategory === 'fieldtrips'
+                  ? 'text-purple-700 border-yellow-400'
+                  : 'text-blue-900 border-transparent hover:text-purple-700'
+              }`}
+              style={{ borderRadius: 4 }}
+              onClick={() => {
+                setActiveCategory('fieldtrips');
+                setLightboxIndex(null);
+              }}
+            >
+              Field Trips
+            </button>
+          </div>
+          {/* Field Trips tab for mobile only */}
+          <div className="mt-2 flex justify-center w-full md:hidden">
+            <button
+              className={`min-w-max px-2 sm:px-4 py-1 sm:py-2 text-base sm:text-xl font-semibold pb-1 border-b-4 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 ${
+                activeCategory === 'fieldtrips'
+                  ? 'text-purple-700 border-yellow-400'
+                  : 'text-blue-900 border-transparent hover:text-purple-700'
+              }`}
+              style={{ borderRadius: 4 }}
+              onClick={() => {
+                setActiveCategory('fieldtrips');
+                setLightboxIndex(null);
+              }}
+            >
+              Field Trips
+            </button>
+          </div>
+        </div>
+
+        {/* Gallery Grid */}
         <motion.div
           ref={ref}
-          className="grid grid-cols-2 gap-1.5 sm:grid-cols-2 md:grid-cols-4 md:gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-6 mb-2"
         >
-          {images.map((src, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: index * 0.05, duration: 0.3 }}
-              className="overflow-hidden rounded-[20px] sm:rounded-[20px] md:rounded-2xl shadow-md group cursor-pointer"
-              onClick={() => openLightbox(index)}
-            >
-              <img
-                src={src}
-                alt={`Gallery image ${index + 1}`}
-                className="w-full h-28 sm:h-32 md:h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
-              />
-            </motion.div>
-          ))}
+          {currentImages.length === 0 ? (
+            <div className="col-span-2 md:col-span-4 text-center text-gray-400 py-16 text-xl">No images in this category yet.</div>
+          ) : (
+            currentImages.map((src, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+                className="overflow-hidden rounded-2xl shadow-md group cursor-pointer aspect-[4/3] bg-gray-100"
+                onClick={() => openLightbox(index)}
+                style={{ minHeight: 0 }}
+              >
+                <img
+                  src={src}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-300"
+                  draggable={false}
+                />
+              </motion.div>
+            ))
+          )}
         </motion.div>
 
-        <div className="text-center mt-14">
-          <a
-            href="#full-gallery"
-            className="inline-block px-8 py-3 text-white text-base font-semibold bg-red-600 hover:bg-red-700 rounded-full transition"
-          >
-            View Gallery
-          </a>
-        </div>
-
-        <div className="text-center mt-6 text-blue-900 font-semibold text-base">
-          See Our Montessori Photo Gallery!
-        </div>
+        {showViewGalleryButton && (
+          <div className="text-center mt-14">
+            <Link
+              to="/gallery"
+              className="inline-block px-8 py-3 text-white text-base font-semibold bg-red-600 hover:bg-red-700 rounded-full transition"
+            >
+              View Gallery
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Lightbox */}
-      {lightboxIndex !== null && (
+      {lightboxIndex !== null && currentImages.length > 0 && (
         <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-md flex flex-col items-center justify-center z-50 p-4">
           {/* Close Button */}
           <button
@@ -139,7 +221,7 @@ export default function Gallery() {
           {/* Image */}
           <div className={`flex items-center justify-center ${isMaximized ? 'w-full h-full' : 'max-w-4xl max-h-[80vh]'} overflow-hidden`}>
             <img
-              src={images[lightboxIndex]}
+              src={currentImages[lightboxIndex]}
               alt={`Lightbox image ${lightboxIndex + 1}`}
               style={{ transform: `scale(${zoom})` }}
               className={`transition-transform duration-300 select-none object-contain 

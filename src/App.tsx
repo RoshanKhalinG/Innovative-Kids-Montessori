@@ -17,6 +17,7 @@ import PrincipalSpeechPage from './pages/PrincipalSpeechPage';
 import TeachersPage from './pages/TeachersPage'; // ✅ New import
 import NewsAndArticlesPage from './pages/NewsAndArticlesPage';
 import NewsArticleDetailPage from './pages/NewsArticleDetailPage';
+import GalleryPage from './pages/GalleryPage'; // Import GalleryPage
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/teachers" element={<TeachersPage />} /> {/* ✅ New route */}
         <Route path="/news" element={<NewsAndArticlesPage />} />
         <Route path="/news/:id" element={<NewsArticleDetailPage />} />
+        <Route path="/gallery" element={<GalleryPage />} /> {/* New Gallery route */}
       </Routes>
       <Footer />
     </main>
